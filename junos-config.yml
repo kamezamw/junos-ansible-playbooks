@@ -1,0 +1,17 @@
+---
+- name: JUNIPER CHECK
+  hosts: juniper
+  connection: local
+  gather_facts: yes
+  roles:
+    - Juniper.junos
+  
+  tasks:
+    - name: EXECUTE CONFIGURATION IN JUNIPER
+      junos_config:
+        src: junos-config.txt
+        check_commit: true
+      register: response
+    - name: Print the response
+      debug:
+              var: response
