@@ -1,0 +1,17 @@
+---
+- name: JUNOS CLI commands
+  hosts: juniper
+  connection: local
+  gather_facts: yes
+  roles:
+    - Juniper.junos
+  vars:
+    config_dir: CONFIGS
+  tasks:
+    - name: GET CONFIGURATION FROM JUNIPER
+      junos_cli:
+        host: "{{ inventory_hostname }}"
+        cli: "show configuration interfaces | display set"
+        logfile: "cli.log"
+        dest: "{{ config_dir }}/{{ inventory_hostname }}.setconfig.txt"
+        format: text

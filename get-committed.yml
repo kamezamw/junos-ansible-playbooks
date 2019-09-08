@@ -1,0 +1,16 @@
+---
+- name: "Get Junos OS configuration."
+  hosts: juniper
+  roles:
+    - Juniper.junos
+  connection: local
+  gather_facts: no
+
+  tasks:
+    - name: "Get committed configuration"
+      juniper_junos_command:
+              commands:
+                      - show configuration interfaces
+                      - show configuration snmp
+              display: set
+              dest_dir: "{{ playbook_dir }}"
