@@ -9,7 +9,7 @@
     - name: get base information
       junos_command:
         commands:
-          - show version
+          - show chassis hardware
           - show system uptime
         display: text
       register: output
