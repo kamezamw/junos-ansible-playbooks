@@ -1,3 +1,3 @@
 ---
-ansible_user: mwai
-ansible_ssh_pass: fusion06
+ansible_user: YYYYY
+ansible_ssh_pass: XXXXX
